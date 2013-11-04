@@ -1,0 +1,7 @@
+#!/bin/bash
+pushd `dirname $0` > /dev/null
+BIN_PATH=`pwd -P`
+popd > /dev/null
+
+# Path delimited by ':' character
+MIGRATIONS_PATH="migrations" $BIN_PATH/../vendor/davedevelopment/phpmig/bin/phpmig "$@"
