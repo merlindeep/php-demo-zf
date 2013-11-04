@@ -3,12 +3,38 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PHP demo ZF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support HTML5 elements -->
+    <!-- [if it IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <h1>PHP demo ZF</h1>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">PHP demo ZF</a>
+                <div class="nav-collapse collapse">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
 
     <?php echo $this->layout()->content ?>
+    </div>
 
 </body>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap.js"></script>
 
 </html>
