@@ -4,7 +4,7 @@ defined('APPLICATION_PATH')
 
 define('APPCONFIG_FILE_NAME', APPLICATION_PATH . '/configs/application.ini');
 
-define('APPLICATION_ENV', 'production');
+define('APPLICATION_ENV', getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'development');
 
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
