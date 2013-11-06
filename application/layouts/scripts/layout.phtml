@@ -4,7 +4,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>PHP demo ZF</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <?php
+    $this->headLink()
+        ->appendStylesheet('/css/bootstrap.css')
+        ->appendStylesheet('/css/bootstrap-responsive.css')
+        ->appendStylesheet('/blocks/import.css');
+    echo $this->headLink();
+
+    $this->headScript()->
+        appendFile('http://code.jquery.com/jquery-latest.js')->
+
+        appendFile('/js/jquery.ui.js')->
+        appendFile('/js/jquery.form.js')->
+        appendFile('/js/jquery.ui.widget.tools.js')->
+        appendFile('/js/jquery.roles.js')->
+
+        appendFile('/js/bootstrap-modal.js')->
+        appendFile('/js/bootstrap.js')->
+
+        appendFile('/blocks/b-ajaxForm/b-ajaxForm.js')->
+
+        appendFile('/js/init.js');
+    ?>
     <style>
         body {
             padding-top: 60px;
@@ -21,6 +42,16 @@
             <div class="container">
                 <a class="brand" href="/">PHP demo ZF</a>
                 <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class=""><a href="<?php echo $this->url(array(), 'home')?>">Home</a> </li>
+                        <?php if (Mrl_View_Helper_User::isGuest()):?>
+                        <li class=""><a href="<?php echo $this->url(array(), 'userSignIn')?>">Login</a> </li>
+                        <li class=""><a href="<?php echo $this->url(array(), 'userSignUp')?>">Sign Up</a> </li>
+                        <?php else: ?>
+                        <li class=""><a href="<?php echo $this->url(array(), 'userSignOut')?>">Logout (<?php
+                                echo Mrl_View_Helper_User::get()->email?>)</a> </li>
+                        <?php endif;?>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -32,9 +63,5 @@
 
 </body>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-<script src="js/bootstrap-modal.js"></script>
-<script src="js/bootstrap.js"></script>
-
+<?php echo $this->headScript();?>
 </html>

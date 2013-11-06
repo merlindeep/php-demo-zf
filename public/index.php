@@ -12,7 +12,6 @@ set_include_path(implode(PATH_SEPARATOR, array(
 )));
 
 require_once 'Zend/Loader/Autoloader.php';
-Zend_Loader_Autoloader::getInstance();
 
 /** Zend_Application */
 require_once 'Zend/Application.php';

@@ -1,0 +1,19 @@
+.b-ajaxForm {
+
+}
+
+.b-ajaxForm__row {
+    position: relative;
+    margin: 0 0 6px 0;
+}
+
+.b-ajaxForm__row_error {
+}
+.b-ajaxForm__row_error input.input-block-level{
+    margin-bottom: 2px;
+}
+
+.b-ajaxForm__errorText {
+    margin-bottom: 4px;
+}
+

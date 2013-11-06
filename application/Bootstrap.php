@@ -2,6 +2,20 @@
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
+
+    public function getResourceLoader()
+    {
+        if ((null === $this->_resourceLoader)
+            && (false !== ($namespace = $this->getAppNamespace()))
+        ) {
+            $this->setResourceLoader(new Zend_Application_Module_Autoloader(array(
+                'namespace' => '',
+                'basePath' => APPLICATION_PATH . '/modules/default'
+            )));
+        }
+        return $this->_resourceLoader;
+    }
+
     protected function _initDB()
     {
         /**
