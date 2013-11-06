@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PHP demo ZF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    $this->headLink()
+        ->appendStylesheet('/css/bootstrap.css')
+        ->appendStylesheet('/css/bootstrap-responsive.css')
+        ->appendStylesheet('/blocks/import.css');
+    echo $this->headLink();
+
+    $this->headScript()->
+        appendFile('http://code.jquery.com/jquery-latest.js')->
+
+        appendFile('/js/jquery.ui.js')->
+        appendFile('/js/jquery.form.js')->
+        appendFile('/js/jquery.ui.widget.tools.js')->
+        appendFile('/js/jquery.roles.js')->
+
+        appendFile('/js/bootstrap-modal.js')->
+        appendFile('/js/bootstrap.js')->
+
+        appendFile('/blocks/b-ajaxForm/b-ajaxForm.js')->
+
+        appendFile('/js/init.js');
+    ?>
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support HTML5 elements -->
+    <!-- [if it IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">PHP demo ZF</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class=""><a href="<?php echo $this->url(array(), 'home')?>">Home</a> </li>
+                        <?php if (Mrl_View_Helper_User::isGuest()):?>
+                        <li class=""><a href="<?php echo $this->url(array(), 'userSignIn')?>">Login</a> </li>
+                        <li class=""><a href="<?php echo $this->url(array(), 'userSignUp')?>">Sign Up</a> </li>
+                        <?php else: ?>
+                        <li class=""><a href="<?php echo $this->url(array(), 'userSignOut')?>">Logout (<?php
+                                echo Mrl_View_Helper_User::get()->email?>)</a> </li>
+                        <?php endif;?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+    <?php echo $this->layout()->content ?>
+    </div>
+
+</body>
+
+<?php echo $this->headScript();?>
+</html>
